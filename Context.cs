@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EFCoreIssue30818
 {
@@ -6,6 +7,7 @@ namespace EFCoreIssue30818
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EFCoreIssue30818;Integrated Security=True");
             optionsBuilder.AddInterceptors(new JsonDictionaryQueryInterceptor());
         }

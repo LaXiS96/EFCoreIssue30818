@@ -4,5 +4,6 @@
     {
         public int Id { get; set; }
         public JsonDictionary Dictionary { get; set; } = new();
+        public string? JsonString { get; set; }
     }
 }
